@@ -1,0 +1,26 @@
+### other
+
+RUN \
+   cd /tmp && \
+   wget -qO jdk8.tar.gz --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz && \
+   tar xzf jdk8.tar.gz -C /opt && \
+   mv /opt/jdk* /opt/java && \
+   rm /tmp/jdk8.tar.gz && \
+   update-alternatives --install /usr/bin/java java /opt/java/bin/java 100 && \
+   update-alternatives --install /usr/bin/javac javac /opt/java/bin/javac 100
+
+#http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+#http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm
+
+curl -L "http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-i586.tar.gz" -H "Cookie: oraclelicense=accept-securebackup-cookie"  -H "Connection: keep-alive" -O
+
+wget  --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm
+wget -nv --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm
+
+#    mv /usr/share/locale/zh_CN/LC_MESSAGES/wget.{mo,mo.back} && \
+#    msgunfmt /usr/share/locale/zh_CN/LC_MESSAGES/wget.mo.back -o - | \
+#    sed 's/eta(英国中部时间)/ETA/' | msgfmt - -o /usr/share/locale/zh_CN/LC_MESSAGES/wget.mo && \
+
+wget -nv --no-check-certificate --no-cookies \
+    --header "Cookie: oraclelicense=accept-securebackup-cookie" \
+    http://download.oracle.com/otn-pub/java/jdk/${OJDK_VERSION}/96a7b8442fe848ef90c96a2fad6ed6d1/${RPM_NAME} && \
